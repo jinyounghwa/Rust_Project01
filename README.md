@@ -1,7 +1,7 @@
 # Rust_Project01
 
 <div align="center">
-  <img src="./assets/network_monitor.png" alt="Network Monitor" width="600">
+  <img src="network_monitor.png" alt="Network Monitor" width="600">
 </div>
 
 ## Overview
