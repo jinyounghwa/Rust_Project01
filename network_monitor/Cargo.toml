@@ -1,0 +1,39 @@
+[package]
+name = "network_monitor"
+version = "0.1.0"
+edition = "2021"
+description = "로컬 네트워크 장애 감지 및 자동 복구 툴"
+authors = ["사용자"]
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.4", features = ["derive"] }
+log = "0.4"
+env_logger = "0.10"
+toml = "0.7.6"
+toml_edit = "0.19.15"
+thiserror = "1.0"
+# ping-rs = "0.1" # 제거하고 winping만 사용
+ctrlc = "3.4"
+chrono = "0.4"
+windows-service = "0.6"
+winping = "0.10"
+syn = "2.0"
+winapi = { version = "0.3", features = ["wincon", "processenv", "winbase"] }
+config = "0.13"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# GUI 관련 의존성
+egui = { version = "0.26.0", optional = true }
+eframe = { version = "0.26.0", optional = true }
+poll-promise = { version = "0.3.0", optional = true }
+rfd = { version = "0.13.0", optional = true }
+
+[features]
+default = []
+gui = ["egui", "eframe", "poll-promise", "rfd"]

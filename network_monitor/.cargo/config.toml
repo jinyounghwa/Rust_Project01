@@ -1,0 +1,9 @@
+[build]
+# 병렬 작업 수를 줄여 파일 접근 충돌 가능성 감소
+jobs = 1
+# 증분 컴파일 비활성화
+incremental = false
+
+[profile.dev]
+# 디버그 정보 줄이기
+debug = 1

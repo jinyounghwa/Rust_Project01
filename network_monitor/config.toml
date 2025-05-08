@@ -1,0 +1,24 @@
+default_target = "8.8.8.8"
+check_interval_sec = 60
+ping_timeout_ms = 1000
+retry_count = 3
+log_file = "network_monitor.log"
+notification_enabled = true
+notification_command = """powershell -Command "[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms'); [System.Windows.Forms.MessageBox]::Show('네트워크 연결이 복구되었습니다.', '네트워크 모니터', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)""""
+
+[[targets]]
+name = "Google DNS"
+address = "8.8.8.8"
+timeout_ms = 1000
+retry_count = 3
+
+[[targets]]
+name = "Local Router"
+address = "192.168.1.1"
+timeout_ms = 500
+retry_count = 2
+
+[[recovery_actions]]
+name = "네트워크 어댑터 재시작"
+command = """powershell -Command "Restart-NetAdapter -Name 'Ethernet' -Confirm:$false""""
+wait_after_ms = 5000
